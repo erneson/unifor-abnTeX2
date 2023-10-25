@@ -1,0 +1,215 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Personalização do modelo canônico abnTeX2 para cursos de graduação e     %%%
+%%% pós-graduação da Universidade de Fortaleza                               %%%
+%%%                                                                          %%%
+%%% Este trabalho pode ser distribuído e/ou modificado sob as condições da   %%%
+%%% Licença Pública do Projeto LaTeX, seja a versão 1.3 desta licença ou (a  %%%
+%%% seu critério) qualquer versão posterior.                                 %%%
+%%%                                                                          %%%
+%%% A versão mais recente desta licença está em                              %%%
+%%%    http://www.latex-project.org/lppl.txt                                 %%%
+%%% e a versão 1.3 ou posterior faz parte de todas as distribuições do LaTeX %%%
+%%% versão 2005/12/01 ou posterior.                                          %%%
+%%%                                                                          %%%
+%%% Esta obra está com o status de manutenção da LPPL 'maintained'.          %%%
+%%%                                                                          %%%
+%%% O atual mantenedor deste trabalho é o Prof. Erneson Oliveira do Programa %%%
+%%% de Pós-Graduação em Informática Aplicada (PPGIA) da Universidade de      %%%
+%%% Fortaleza (UNIFOR).                                                      %%%
+%%%                                                                          %%%
+%%% Mais informações estão disponíveis em                                    %%%
+%%%    https://github.com/erneson/unifor-abnTeX2                             %%%
+%%% e                                                                        %%%
+%%%    http://www.abntex.net.br                                              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,            % tamanho da fonte
+               openright,       % capítulos começam em pág ímpar (insere página vazia caso preciso)
+               twoside,         % para impressão em recto e verso. Oposto a oneside
+               a4paper,         % tamanho do papel.
+               english,         % idioma adicional para hifenização
+               french,          % idioma adicional para hifenização
+               spanish,         % idioma adicional para hifenização
+               brazil]{abntex2} % o último idioma é o principal do documento
+
+%%%%%%%%%%%%%%%%%
+%%% PREÂMBULO %%%
+\usepackage{template/unifor-abntex2}
+%%% PREÂMBULO %%%
+%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DADOS PARA A CAPA %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\curso{Programa de Pós-Graduação em Informática Aplicada} % Curso de Ciência da Computação
+% \centro{Centro de Ciências Tecnológicas}                % Descomente para monografias
+
+\titulo{Título do trabalho}
+\autor{Nome do autor}
+\data{2023}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DADOS PARA A CAPA %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DADOS PARA A FOLHA DE ROSTO %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\orientador{Nome do orientador}
+\coorientador{Nome do coorientador}
+\tipotrabalho{Tese} % Monografia, Dissertação
+\nometitulo{Doutor em Informática Aplicada} % Graduado em Ciência da Computação, Mestre em Informática Aplicada
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DADOS PARA A FOLHA DE ROSTO %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DADOS PARA A FOLHA DE APROVAÇÃO %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\datadefesa{1º de setembro de 2023}
+
+\primeiromembro{Nome do primeiro membro}
+\instituicaoprimeiromembro{Instituição do primeiro membro}
+
+\segundomembro{Nome do segundo membro}
+\instituicaosegundomembro{Instituição do segundo membro}
+
+\terceiromembro{Nome do terceiro membro}
+\instituicaoterceiromembro{Instituição do terceiro membro}
+
+% \quartomembro{Nome do quarto membro}                   % Descomente se o coorientador não estiver na banca
+% \instituicaoquartomembro{Instituição do quarto membro} % Descomente se o coorientador não estiver na banca
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DADOS PARA A FOLHA DE APROVAÇÃO %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+    % IDIOMA
+    \selectlanguage{brazil} % english
+
+    \frenchspacing
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% ELEMENTOS PRÉ-TEXTUAIS %%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \pretextual
+
+    % CAPA
+    \imprimircapa
+
+    % ERRATA
+    % \include{template/elementos_pre_textuais/errata.tex}
+    
+    % FOLHA DE ROSTO
+    \imprimirfolhaderosto* % o * indica que haverá a ficha catalográfica
+    
+    % FICHA CATALOGRÁFICA
+    \include{template/elementos_pre_textuais/ficha_catalografica.tex}
+
+    % FOLHA DE APROVAÇÃO
+    \include{template/elementos_pre_textuais/folha_de_aprovacao.tex}
+    
+    % DEDICATÓRIA
+    \include{template/elementos_pre_textuais/dedicatoria.tex}
+
+    % AGRADECIMENTOS
+    \include{template/elementos_pre_textuais/agradecimentos.tex}
+
+    % EPÍGRAFE
+    \include{template/elementos_pre_textuais/epigrafe.tex}
+
+    % RESUMO
+    \include{template/elementos_pre_textuais/resumo.tex}
+
+    % ABSTRACT
+    \include{template/elementos_pre_textuais/abstract.tex} % resumo em inglês
+
+    % RESUMÉ
+    % \include{elementos_pre_textuais/resume.tex} % resumo em francês
+
+    % RESUMEN
+    % \include{elementos_pre_textuais/resumen.tex} % resumo em espanhol
+
+    % LISTA DE ILUSTRAÇÕES
+    \include{template/elementos_pre_textuais/lista_de_ilustracoes.tex}
+
+    % LISTA DE QUADROS
+    \include{template/elementos_pre_textuais/lista_de_quadros.tex}
+
+    % LISTA DE TABELAS
+    \include{template/elementos_pre_textuais/lista_de_tabelas.tex}
+
+    % LISTA DE ABREVIATURAS E SIGLAS
+    \include{template/elementos_pre_textuais/lista_de_abreviaturas_e_siglas.tex}
+
+    % LISTA DE SÍMBOLOS
+    \include{template/elementos_pre_textuais/lista_de_simbolos.tex}
+
+    % SUMÁRIO
+    \include{template/elementos_pre_textuais/sumario.tex}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% ELEMENTOS PRÉ-TEXTUAIS %%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% ELEMENTOS TEXTUAIS %%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \textual
+    
+    % EXEMPLOS DO ABNTEX2
+    \include{template/elementos_textuais/exemplo.tex}
+    
+    % INTRODUÇÃO
+    \include{template/elementos_textuais/introducao.tex}
+
+    % PARTE I
+    \part{Preparação da pesquisa}
+    
+    % CAPÍTULO 1
+    \include{template/elementos_textuais/capitulo1.tex}
+
+    % PARTE II
+    \part{Referenciais teóricos}
+
+    % CAPÍTULO 2
+    \include{template/elementos_textuais/capitulo2.tex}
+
+    % PARTE III
+    \part{Resultados}
+
+    % CAPÍTULO 3
+    \include{template/elementos_textuais/capitulo3.tex}
+
+    %CAPÍTULO 4
+    \include{template/elementos_textuais/capitulo4.tex}
+
+    \phantompart
+
+    % CONCLUSÃO
+    \include{template/elementos_textuais/conclusao.tex}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% ELEMENTOS TEXTUAIS %%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% ELEMENTOS PÓS-TEXTUAIS %%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \postextual
+
+    % REFERÊNCIAS
+    \include{template/elementos_pos_textuais/referencias.tex}
+
+    % GLOSSÁRIO
+    \include{template/elementos_pos_textuais/glossario.tex}
+    
+    % APÊNDICE
+    \include{template/elementos_pos_textuais/apendice.tex}
+    
+    % ANEXO
+    \include{template/elementos_pos_textuais/anexo.tex}
+    
+    % ÍNDICE
+    \include{template/elementos_pos_textuais/indice.tex}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%% ELEMENTOS PÓS-TEXTUAIS %%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

@@ -1,0 +1,283 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% PACOTES BÁSICOS %%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lmodern}        % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}    % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc} % Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}    % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}          % Controle das cores
+\usepackage{graphicx}       % Inclusão de gráficos
+\usepackage{microtype}      % para melhorias de justificação
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% PACOTES BÁSICOS %%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PACOTES DE CITAÇÃO %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[brazilian,hyperpageref]{backref} % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}                % Citações padrão ABNT
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PACOTES DE CITAÇÃO %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CONFIGURAÇÕES DE PACOTES %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{\ifcase #1
+                                   Nenhuma citação no texto.
+                               \or
+                                   Citado na página #2.
+                               \else
+                                   Citado #1 vezes nas páginas #2.
+                               \fi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CONFIGURAÇÕES DE PACOTES %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CONFIGURAÇÕES DE APARÊNCIA DO PDF FINAL %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{%pagebackref=true,
+            pdftitle={\@title},
+            pdfauthor={\@author},
+            pdfsubject={\imprimirpreambulo},
+            pdfcreator={LaTeX with abnTeX2},
+            pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
+            colorlinks=true,      % false: boxed links; true: colored links
+            linkcolor=blue,       % color of internal links
+            citecolor=blue,       % color of links to bibliography
+            filecolor=magenta,    % color of file links
+            urlcolor=blue,
+            bookmarksdepth=4}
+\makeatother
+
+% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
+% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
+\makeatletter
+\setlength{\@fptop}{5pt} % Set distance from top of page to first float
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CONFIGURAÇÕES DE APARÊNCIA DO PDF FINAL %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CRIAÇÃO DE QUADROS E LISTA DE QUADROS %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ver https://github.com/abntex/abntex2/issues/176
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+\setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CRIAÇÃO DE QUADROS E LISTA DE QUADROS %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ESPAÇAMENTOS ENTRE LINHAS E PARÁGRAFOS %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{1.3cm} % tamanho do parágrafo
+\setlength{\parskip}{0.2cm}  % espaçamento entre um parágrafo e outro
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ESPAÇAMENTOS ENTRE LINHAS E PARÁGRAFOS %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% COMPILAÇÃO DO ÍNDICE %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% COMPILAÇÃO DO ÍNDICE %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%% NOVOS COMANDOS %%%
+%%%%%%%%%%%%%%%%%%%%%%
+\providecommand{\imprimirfundacao}{}
+\newcommand{\fundacao}[1]{\renewcommand{\imprimirfundacao}{#1}}
+
+\providecommand{\imprimircurso}{}
+\newcommand{\curso}[1]{\renewcommand{\imprimircurso}{#1}}
+
+\providecommand{\imprimircentro}{}
+\newcommand{\centro}[1]{\renewcommand{\imprimircentro}{#1}}
+
+\providecommand{\imprimirnometitulo}{}
+\newcommand{\nometitulo}[1]{\renewcommand{\imprimirnometitulo}{#1}}
+
+\providecommand{\imprimirdatadefesa}{}
+\newcommand{\datadefesa}[1]{\renewcommand{\imprimirdatadefesa}{#1}}
+
+\providecommand{\imprimirprimeiromembro}{}
+\newcommand{\primeiromembro}[1]{\renewcommand{\imprimirprimeiromembro}{#1}}
+\providecommand{\imprimirinstituicaoprimeiromembro}{}
+\newcommand{\instituicaoprimeiromembro}[1]{\renewcommand{\imprimirinstituicaoprimeiromembro}{#1}}
+
+\providecommand{\imprimirsegundomembro}{}
+\newcommand{\segundomembro}[1]{\renewcommand{\imprimirsegundomembro}{#1}}
+\providecommand{\imprimirinstituicaosegundomembro}{}
+\newcommand{\instituicaosegundomembro}[1]{\renewcommand{\imprimirinstituicaosegundomembro}{#1}}
+
+\providecommand{\imprimirterceiromembro}{}
+\newcommand{\terceiromembro}[1]{\renewcommand{\imprimirterceiromembro}{#1}}
+\providecommand{\imprimirinstituicaoterceiromembro}{}
+\newcommand{\instituicaoterceiromembro}[1]{\renewcommand{\imprimirinstituicaoterceiromembro}{#1}}
+
+\providecommand{\imprimirquartomembro}{}
+\newcommand{\quartomembro}[1]{\renewcommand{\imprimirquartomembro}{#1}}
+\providecommand{\imprimirinstituicaoquartomembro}{}
+\newcommand{\instituicaoquartomembro}[1]{\renewcommand{\imprimirinstituicaoquartomembro}{#1}}
+
+\newcommand{\ifnotempty}[3]{\ifthenelse{\not\equal{#1}{}}{#2}{#3}}
+%%%%%%%%%%%%%%%%%%%%%%
+%%% NOVOS COMANDOS %%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+%%% CAPA %%%
+%%%%%%%%%%%%
+\renewcommand{\imprimircapa}{\begin{capa}
+                                \center
+                                \bfseries        
+                                \noindent
+                                \includegraphics[scale=0.25]{template/logo_unifor.png}\par
+                                \MakeUppercase{\imprimirfundacao}\par
+                                \MakeUppercase{\imprimirinstituicao}\par
+                                
+                                {\ifnotempty{\imprimircentro}
+                                            {\MakeUppercase{\imprimircentro}\par
+                                             \MakeUppercase{\imprimircurso}}
+                                            {\MakeUppercase{\imprimircurso}}}
+                                
+                                \vspace{5cm}
+                                \MakeUppercase{\imprimirtitulo}
+                                
+                                \vspace{3cm}
+                                \MakeUppercase{\imprimirautor}
+                                
+                                \vfill
+                                \normalsize\MakeUppercase\imprimirlocal\par
+                                \normalsize\imprimirdata
+                            \end{capa}}
+
+\fundacao{Fundação Edson Queiroz}
+\instituicao{Universidade de Fortaleza}
+\local{Fortaleza -- CE}
+%%%%%%%%%%%%
+%%% CAPA %%%
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%% FOLHA DE ROSTO %%%
+%%%%%%%%%%%%%%%%%%%%%%
+\preambulo{{\imprimirtipotrabalho} apresentada ao {\imprimircurso} da
+{\imprimirinstituicao}, como parte dos requisitos para obtenção do título de
+{\imprimirnometitulo}.}
+%%%%%%%%%%%%%%%%%%%%%%
+%%% FOLHA DE ROSTO %%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FICHA CATALOGRÁFICA %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\imprimirfichacatalografica}{\begin{fichacatalografica}
+                                             \sffamily
+                                             \vspace*{\fill}                        % Posição vertical
+                                             \begin{center}                         % Minipage Centralizado
+                                             \fbox{\begin{minipage}[c][8cm]{13.5cm} % Largura
+                                             \small
+                                             \imprimirautor
+                                             % Sobrenome, Nome do autor
+                                             
+                                             \hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+                                             \imprimirlocal, \imprimirdata-
+                                             
+                                             \hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
+                                             
+                                             \hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\par
+                                             \hspace{0.5cm} \imprimircoorientadorRotulo~\imprimircoorientador\\
+                                              
+                                             \hspace{0.5cm}
+                                             \parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+                                             \imprimirdata.}\\
+                                             
+                                              \hspace{0.5cm}
+                                                 1. Palavra-chave.
+                                                 2. Palavra-chave.
+                                                 2. Palavra-chave.
+                                                 I. \imprimirorientador.
+                                                 \ifnotempty{\imprimircoorientador}
+                                                            {II. \imprimircoorientador.
+                                                             III. \imprimirinstituicao.
+                                                             IV. \imprimirtitulo.
+                                                            }
+                                                            {II. \imprimirinstituicao.
+                                                             III. \imprimirtitulo.}
+                                             \end{minipage}}
+                                             \end{center}
+                                         \end{fichacatalografica}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FICHA CATALOGRÁFICA %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FOLHA DE APROVAÇÃO %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\imprimirfolhadeaprovacao}{\begin{folhadeaprovacao}
+                                           \begin{center}
+                                               {\ABNTEXchapterfont\large\imprimirautor}
+                                               
+                                               \vspace*{\fill}\vspace*{\fill}
+                                               \begin{center}
+                                               \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+                                               \end{center}
+                                               \vspace*{\fill}
+                                               
+                                               \hspace{.45\textwidth}
+                                               \begin{minipage}{.5\textwidth}
+                                                   \imprimirpreambulo
+                                               \end{minipage}
+                                           \end{center}
+                                           \vspace*{\fill}
+                                           Aprovada em: \imprimirdatadefesa
+                                           \vspace*{\fill}
+                                           \begin{center}
+                                           \MakeUppercase{Banca Examinadora}
+                                           \assinatura{\imprimirorientador \\ Orientador -- \imprimirinstituicao}
+                                           \ifnotempty{\imprimircoorientador}
+                                                       {\assinatura{\imprimircoorientador \\ Coorientador -- \imprimirinstituicao}
+                                                        \assinatura{\imprimirprimeiromembro \\ \imprimirinstituicaoprimeiromembro}
+                                                        \assinatura{\imprimirsegundomembro \\ \imprimirinstituicaosegundomembro}
+                                                        \assinatura{\imprimirterceiromembro \\ \imprimirinstituicaoterceiromembro}}
+                                                       {\assinatura{\imprimirprimeiromembro \\ \imprimirinstituicaoprimeiromembro}
+                                                        \assinatura{\imprimirsegundomembro \\ \imprimirinstituicaosegundomembro}
+                                                        \assinatura{\imprimirterceiromembro \\ \imprimirinstituicaoterceiromembro}
+                                                        \assinatura{\imprimirquartomembro \\ \imprimirinstituicaoquartomembro}}
+                                           
+                                           \vspace*{\fill}
+                                           \end{center}
+                                       \end{folhadeaprovacao}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FOLHA DE APROVAÇÃO %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%

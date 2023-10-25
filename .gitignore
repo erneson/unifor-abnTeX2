@@ -1,0 +1,13 @@
+main.aux
+main.bbl
+main.blg
+main.brf
+main.idx
+main.lof
+main.log
+main.loq
+main.lot
+main.toc
+template/elementos_pos_textuais/*.aux
+template/elementos_pre_textuais/*.aux
+template/elementos_textuais/*.aux
