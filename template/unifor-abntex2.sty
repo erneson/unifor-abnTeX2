@@ -8,6 +8,7 @@
 \usepackage{color}          % Controle das cores
 \usepackage{graphicx}       % Inclusão de gráficos
 \usepackage{microtype}      % para melhorias de justificação
+\usepackage{pdfpages}       % para colocar a ficha_catalografica_digitalizada.pdf
 %%%%%%%%%%%%%%%%%%%%%%%
 %%% PACOTES BÁSICOS %%%
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -117,11 +118,17 @@
 \providecommand{\imprimirfundacao}{}
 \newcommand{\fundacao}[1]{\renewcommand{\imprimirfundacao}{#1}}
 
+\providecommand{\imprimirvicereitoria}{}
+\newcommand{\vicereitoria}[1]{\renewcommand{\imprimirvicereitoria}{#1}}
+
 \providecommand{\imprimircurso}{}
 \newcommand{\curso}[1]{\renewcommand{\imprimircurso}{#1}}
 
 \providecommand{\imprimircentro}{}
 \newcommand{\centro}[1]{\renewcommand{\imprimircentro}{#1}}
+
+\providecommand{\imprimirprograma}{}
+\newcommand{\programa}[1]{\renewcommand{\imprimirprograma}{#1}}
 
 \providecommand{\imprimirnometitulo}{}
 \newcommand{\nometitulo}[1]{\renewcommand{\imprimirnometitulo}{#1}}
@@ -161,16 +168,26 @@
                                 \center
                                 \bfseries        
                                 \noindent
-                                \includegraphics[scale=0.25]{template/logo_unifor.png}\par
-                                \MakeUppercase{\imprimirfundacao}\par
-                                \MakeUppercase{\imprimirinstituicao}\par
+                                \begin{minipage}{0.14\textwidth}
+                                    \includegraphics[scale=0.25]{template/logo_unifor.png}
+                                \end{minipage}
+                                \hfill
+                                \begin{minipage}{0.8479\textwidth}
+                                    \MakeUppercase{\imprimirfundacao}\par
+                                    \MakeUppercase{\imprimirinstituicao}\par
+                                    \MakeUppercase{\imprimirvicereitoria}\par
+
+                                    \ifnotempty{\imprimirprograma}
+                                               {\MakeUppercase{\imprimirprograma}\par}
+                                    
+                                    \ifnotempty{\imprimircentro}
+                                               {\MakeUppercase{\imprimircentro}\par}
+                                    
+                                    \ifnotempty{\imprimircurso}
+                                               {\MakeUppercase{\imprimircurso}\par}
+                                \end{minipage}
                                 
-                                {\ifnotempty{\imprimircentro}
-                                            {\MakeUppercase{\imprimircentro}\par
-                                             \MakeUppercase{\imprimircurso}}
-                                            {\MakeUppercase{\imprimircurso}}}
-                                
-                                \vspace{5cm}
+                                \vspace{4cm}
                                 \MakeUppercase{\imprimirtitulo}
                                 
                                 \vspace{3cm}
@@ -178,11 +195,12 @@
                                 
                                 \vfill
                                 \normalsize\MakeUppercase\imprimirlocal\par
-                                \normalsize\imprimirdata
+                                \normalsize\MakeUppercase\imprimirdata
                             \end{capa}}
 
 \fundacao{Fundação Edson Queiroz}
-\instituicao{Universidade de Fortaleza}
+\instituicao{Universidade de Fortaleza -- UNIFOR}
+\vicereitoria{Vice-Reitoria de Ensino de Graduação e Pós-Graduação -- VRE}
 \local{Fortaleza -- CE}
 %%%%%%%%%%%%
 %%% CAPA %%%
@@ -265,15 +283,21 @@
                                            \begin{center}
                                            \MakeUppercase{Banca Examinadora}
                                            \assinatura{\imprimirorientador \\ Orientador -- \imprimirinstituicao}
+
                                            \ifnotempty{\imprimircoorientador}
-                                                       {\assinatura{\imprimircoorientador \\ Coorientador -- \imprimirinstituicao}
-                                                        \assinatura{\imprimirprimeiromembro \\ \imprimirinstituicaoprimeiromembro}
-                                                        \assinatura{\imprimirsegundomembro \\ \imprimirinstituicaosegundomembro}
-                                                        \assinatura{\imprimirterceiromembro \\ \imprimirinstituicaoterceiromembro}}
-                                                       {\assinatura{\imprimirprimeiromembro \\ \imprimirinstituicaoprimeiromembro}
-                                                        \assinatura{\imprimirsegundomembro \\ \imprimirinstituicaosegundomembro}
-                                                        \assinatura{\imprimirterceiromembro \\ \imprimirinstituicaoterceiromembro}
-                                                        \assinatura{\imprimirquartomembro \\ \imprimirinstituicaoquartomembro}}
+                                                      {\assinatura{\imprimircoorientador \\ Coorientador -- \imprimirinstituicao}}
+                                           
+                                           \ifnotempty{\imprimirprimeiromembro}
+                                                      {\assinatura{\imprimirprimeiromembro \\ \imprimirinstituicaoprimeiromembro}}
+                                           
+                                           \ifnotempty{\imprimirsegundomembro}
+                                                      {\assinatura{\imprimirsegundomembro \\ \imprimirinstituicaosegundomembro}}
+                                           
+                                           \ifnotempty{\imprimirterceiromembro}
+                                                      {\assinatura{\imprimirterceiromembro \\ \imprimirinstituicaoterceiromembro}}
+                                           
+                                           \ifnotempty{\imprimirquartomembro}
+                                                      {\assinatura{\imprimirquartomembro \\ \imprimirinstituicaoquartomembro}}
                                            
                                            \vspace*{\fill}
                                            \end{center}
