@@ -121,14 +121,11 @@
 \providecommand{\imprimirvicereitoria}{}
 \newcommand{\vicereitoria}[1]{\renewcommand{\imprimirvicereitoria}{#1}}
 
-\providecommand{\imprimircurso}{}
-\newcommand{\curso}[1]{\renewcommand{\imprimircurso}{#1}}
-
 \providecommand{\imprimircentro}{}
 \newcommand{\centro}[1]{\renewcommand{\imprimircentro}{#1}}
 
-\providecommand{\imprimirprograma}{}
-\newcommand{\programa}[1]{\renewcommand{\imprimirprograma}{#1}}
+\providecommand{\imprimircurso}{}
+\newcommand{\curso}[1]{\renewcommand{\imprimircurso}{#1}}
 
 \providecommand{\imprimirnometitulo}{}
 \newcommand{\nometitulo}[1]{\renewcommand{\imprimirnometitulo}{#1}}
@@ -176,15 +173,8 @@
                                     \MakeUppercase{\imprimirfundacao}\par
                                     \MakeUppercase{\imprimirinstituicao}\par
                                     \MakeUppercase{\imprimirvicereitoria}\par
-
-                                    \ifnotempty{\imprimirprograma}
-                                               {\MakeUppercase{\imprimirprograma}\par}
-                                    
-                                    \ifnotempty{\imprimircentro}
-                                               {\MakeUppercase{\imprimircentro}\par}
-                                    
-                                    \ifnotempty{\imprimircurso}
-                                               {\MakeUppercase{\imprimircurso}\par}
+                                    \MakeUppercase{\imprimircentro}\par
+                                    \MakeUppercase{\imprimircurso}\par
                                 \end{minipage}
                                 
                                 \vspace{4cm}
